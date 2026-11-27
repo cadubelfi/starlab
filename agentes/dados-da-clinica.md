@@ -16,9 +16,21 @@
 
 ## Valores e pagamento
 - Avaliação inicial: [valor]
-- Convênios odontológicos aceitos: [lista]
+- Convênios odontológicos aceitos: [lista] (o que cada um cobre fica em tabela-de-procedimentos.md)
 - Formas de pagamento: [ex.: Pix, cartão em até X vezes]
+- Desconto à vista: [ex.: nenhum, ou X%]
+- Parcelamento: [ex.: cartão em até X vezes sem juros; boleto em até X vezes]
+- Sinal para iniciar tratamento: [ex.: nenhum, ou X% do total]
 - Valores de tratamento: só depois da avaliação, pelo orçamento.
+
+## Orçamentos
+- Validade do orçamento: [ex.: 30 dias]
+- Acompanhamento: uma mensagem gentil depois de [ex.: 5] dias sem resposta, uma vez só.
+
+## Ficha de saúde (anamnese)
+- Link da ficha: [link do formulário]
+- Enviar: [ex.: 2 dias antes da primeira consulta]
+- Outros pontos que o(a) dentista quer ver no topo do resumo: [ex.: uso de cigarro, apneia, ansiedade com dentista]
 
 ## O que trazer na primeira consulta
 - [ex.: documento com foto, carteirinha do convênio, radiografias antigas]

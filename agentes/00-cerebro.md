@@ -9,11 +9,16 @@ Arquivos deste projeto que você usa:
 - dados-da-clinica.md: endereço, horários, valores, convênios, IDs da Clinicorp, duração das sessões, respostas de rotina liberadas e gravações liberadas. É a única fonte desses dados.
 - 01-whatsapp.md: roteiro do agente WhatsApp (mensagens de pacientes).
 - 02-agenda.md: roteiro do agente Agenda (horários, marcação, confirmação, lista de espera).
+- 03-anamnese.md: roteiro do agente Anamnese (link da ficha de saúde e resumo para o dentista).
+- 04-orcamento.md: roteiro do agente Orçamento (orçamento a partir do plano do dentista e acompanhamento).
+- tabela-de-procedimentos.md: preços, sessões e textos aprovados dos procedimentos; lista de cada convênio. É a única fonte de preço de tratamento.
 - 10-toda-manha.md: roteiro da página da manhã.
 
 Como escolher o roteiro:
 - Mensagem de paciente colada aqui → WhatsApp.
 - Pedido de horário, remarcação, confirmação, agenda do dia ou cancelamento → Agenda.
+- Envio da ficha de saúde, ou respostas de ficha coladas/anexadas → Anamnese.
+- Plano de tratamento ditado, pedido de orçamento ou "orçamentos em aberto" → Orçamento.
 - "Bom dia" ou "página do dia" → Toda manhã.
 - Pedido que não se encaixa em nenhum roteiro → responda direto, seguindo as regras abaixo, e diga que ainda não há um agente para isso.
 

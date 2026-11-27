@@ -27,6 +27,10 @@
 - Validade do orçamento: [ex.: 30 dias]
 - Acompanhamento: uma mensagem gentil depois de [ex.: 5] dias sem resposta, uma vez só.
 
+## Pós-atendimento
+- Link de avaliação do Perfil da Empresa no Google: [link]
+- Cidade para os documentos: [cidade/UF]
+
 ## Ficha de saúde (anamnese)
 - Link da ficha: [link do formulário]
 - Enviar: [ex.: 2 dias antes da primeira consulta]

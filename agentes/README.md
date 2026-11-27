@@ -11,16 +11,25 @@ Instruções prontas para montar os agentes do mapa "Clínica odontológica sem 
 | [`03-anamnese.md`](03-anamnese.md) | Link da ficha de saúde e resumo de uma página para o dentista | Arquivos do projeto |
 | [`04-orcamento.md`](04-orcamento.md) | Orçamento a partir do plano do dentista e acompanhamento dos que ficaram em aberto | Arquivos do projeto |
 | [`tabela-de-procedimentos.md`](tabela-de-procedimentos.md) | Preços, sessões e textos aprovados; o que cada convênio cobre | Arquivos do projeto (preencha antes) |
+| [`05-documentos.md`](05-documentos.md) | Receita, atestado, declaração, termo, pedido de exame e encaminhamento, em rascunho | Arquivos do projeto |
+| [`modelos-de-documentos.md`](modelos-de-documentos.md) | Os seus modelos de documento | Arquivos do projeto (preencha antes) |
+| [`07-pos-procedimento.md`](07-pos-procedimento.md) | Orientações, contato no dia seguinte, retorno e avaliação no Google | Arquivos do projeto |
+| [`orientacoes-pos-procedimento.md`](orientacoes-pos-procedimento.md) | Suas orientações aprovadas, por procedimento | Arquivos do projeto (preencha antes) |
 | [`10-toda-manha.md`](10-toda-manha.md) | Página do dia | Arquivos do projeto |
 
 | Etapa | Agentes | Situação |
 | --- | --- | --- |
 | 1 | Cérebro, WhatsApp, Agenda, Toda manhã | Pronta |
 | 2 | Anamnese, Orçamento | Pronta |
-| 3 | Documentos, Pós-procedimento | A fazer |
+| 3 | Documentos, Pós-procedimento | Pronta |
 | 4 | Cobrança, Manutenção, Laboratório | A fazer |
 
-**Limites da API que afetam a etapa 2:** a Clinicorp não expõe a ficha de anamnese pela API, então você cola as respostas ou anexa o arquivo na conversa. O conector lê orçamentos mas não cria: o agente monta o rascunho e você lança na Clinicorp.
+**Limites da API:**
+- A Clinicorp não expõe a ficha de anamnese pela API, então você cola as respostas ou anexa o arquivo na conversa.
+- O conector lê orçamentos mas não cria: o agente monta o rascunho e você lança na Clinicorp.
+- Documentos não são criados na Clinicorp: o agente devolve o texto, e você assina e emite pelo seu receituário ou pelo sistema.
+
+**Textos clínicos e jurídicos:** `modelos-de-documentos.md` e `orientacoes-pos-procedimento.md` vêm sem termos de consentimento e sem orientações prontas, de propósito. Use os textos que você já usa ou os recomendados pelo seu CRO.
 
 ## Por que um Projeto só
 
@@ -30,13 +39,17 @@ No Claude Desktop, um Projeto não chama outro. Por isso o Cérebro fica nas Ins
 
 1. **Instale o conector da Clinicorp** no Claude Desktop, seguindo o [README do conector](../clinicorp-mcp/README.md). Deixe `CLINICORP_GRAVACOES_LIBERADAS` vazio por enquanto.
 2. **Descubra os IDs:** numa conversa nova, peça *"Liste as clínicas e os profissionais da Clinicorp."* Anote os IDs.
-3. **Preencha `dados-da-clinica.md` e `tabela-de-procedimentos.md`:** troque tudo o que está entre colchetes, inclusive os IDs. Para os nomes dos procedimentos, peça *"Liste os procedimentos da Clinicorp."*
+3. **Preencha os quatro modelos:** `dados-da-clinica.md`, `tabela-de-procedimentos.md`, `modelos-de-documentos.md` e `orientacoes-pos-procedimento.md`. Troque tudo o que está entre colchetes, inclusive os IDs. Para os nomes dos procedimentos, peça *"Liste os procedimentos da Clinicorp."*
 4. **Crie o Projeto "Clínica"** no Claude Desktop.
 5. **Instruções do projeto:** cole o bloco de texto de `00-cerebro.md` (só o que está dentro do bloco).
-6. **Arquivos do projeto:** suba `dados-da-clinica.md`, `tabela-de-procedimentos.md` e os roteiros (`01-whatsapp.md`, `02-agenda.md`, `03-anamnese.md`, `04-orcamento.md`, `10-toda-manha.md`).
-7. **Teste:** use as mensagens de teste de cada arquivo, nesta ordem: Cérebro, WhatsApp, Agenda, Anamnese, Orçamento, Toda manhã.
+6. **Arquivos do projeto:** suba os quatro modelos e os roteiros (`01-whatsapp.md`, `02-agenda.md`, `03-anamnese.md`, `04-orcamento.md`, `05-documentos.md`, `07-pos-procedimento.md`, `10-toda-manha.md`).
+7. **Teste:** use as mensagens de teste de cada arquivo, nesta ordem: Cérebro, WhatsApp, Agenda, Anamnese, Orçamento, Documentos, Pós-procedimento, Toda manhã.
 
-Já montou a etapa 1? Atualize as Instruções do projeto com o `00-cerebro.md` novo, preencha os campos novos de `dados-da-clinica.md` (orçamentos e ficha de saúde) e suba de novo esse arquivo, mais `tabela-de-procedimentos.md`, `03-anamnese.md` e `04-orcamento.md`.
+**Já montou uma etapa anterior?** Faça o seguinte:
+
+1. Cole o `00-cerebro.md` novo nas Instruções do projeto.
+2. Preencha os campos novos de `dados-da-clinica.md` e suba esse arquivo de novo.
+3. Suba os arquivos que ainda não estão no Projeto. A etapa 2 traz `tabela-de-procedimentos.md`, `03-anamnese.md` e `04-orcamento.md`. A etapa 3 traz `05-documentos.md`, `modelos-de-documentos.md`, `07-pos-procedimento.md` e `orientacoes-pos-procedimento.md`.
 
 ## Checklist antes de usar com pacientes
 
@@ -45,6 +58,8 @@ Já montou a etapa 1? Atualize as Instruções do projeto com o `00-cerebro.md` 
 - [ ] A Agenda só oferece horários que a Clinicorp mostrou livres, com a duração certa.
 - [ ] A Anamnese coloca no topo os pontos marcados na ficha e não interpreta radiografia nem sugere conduta.
 - [ ] O Orçamento usa só os preços da tabela, pergunta quando o plano está incompleto e as contas das parcelas fecham com o total.
+- [ ] Os Documentos saem sempre como rascunho, só com o que foi ditado, e perguntam quando falta dose, duração ou dias de afastamento.
+- [ ] O Pós-procedimento usa só as orientações aprovadas, coloca URGENTE diante de sinais de alerta e pede avaliação só ao fim do tratamento.
 - [ ] A Toda manhã avisa quando uma fonte falha, em vez de inventar.
 - [ ] Nada foi gravado na Clinicorp durante os testes.
 - [ ] O(a) dentista responsável revisou o protocolo de urgência.

@@ -12,6 +12,10 @@ Arquivos deste projeto que você usa:
 - 03-anamnese.md: roteiro do agente Anamnese (link da ficha de saúde e resumo para o dentista).
 - 04-orcamento.md: roteiro do agente Orçamento (orçamento a partir do plano do dentista e acompanhamento).
 - tabela-de-procedimentos.md: preços, sessões e textos aprovados dos procedimentos; lista de cada convênio. É a única fonte de preço de tratamento.
+- 05-documentos.md: roteiro do agente Documentos (receita, atestado, declaração, termo, pedido de exame, encaminhamento).
+- modelos-de-documentos.md: os modelos aprovados de documento. É a única fonte de modelo.
+- 07-pos-procedimento.md: roteiro do agente Pós-procedimento (orientações, contato no dia seguinte, retorno, avaliação no Google).
+- orientacoes-pos-procedimento.md: as orientações aprovadas por procedimento. É a única fonte de orientação ao paciente.
 - 10-toda-manha.md: roteiro da página da manhã.
 
 Como escolher o roteiro:
@@ -19,6 +23,8 @@ Como escolher o roteiro:
 - Pedido de horário, remarcação, confirmação, agenda do dia ou cancelamento → Agenda.
 - Envio da ficha de saúde, ou respostas de ficha coladas/anexadas → Anamnese.
 - Plano de tratamento ditado, pedido de orçamento ou "orçamentos em aberto" → Orçamento.
+- Receita, atestado, declaração, termo de consentimento, pedido de exame ou encaminhamento → Documentos.
+- Mensagens depois do atendimento, resposta de paciente após procedimento, retorno ou avaliação no Google → Pós-procedimento.
 - "Bom dia" ou "página do dia" → Toda manhã.
 - Pedido que não se encaixa em nenhum roteiro → responda direto, seguindo as regras abaixo, e diga que ainda não há um agente para isso.
 

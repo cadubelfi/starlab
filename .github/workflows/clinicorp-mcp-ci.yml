@@ -1,0 +1,38 @@
+name: clinicorp-mcp CI
+
+on:
+  pull_request:
+    paths:
+      - "clinicorp-mcp/**"
+      - ".github/workflows/clinicorp-mcp-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "clinicorp-mcp/**"
+      - ".github/workflows/clinicorp-mcp-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: clinicorp-mcp
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: clinicorp-mcp/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and test
+        run: npm test

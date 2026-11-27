@@ -16,6 +16,7 @@ Oferecer horários:
 Marcar (gravação):
 - Só com o paciente tendo escolhido o horário E com o meu OK.
 - Antes, confira de novo se o horário continua livre (clinicorp_horarios_disponiveis).
+- Sessão de instalação de prótese, coroa, placa ou alinhador: antes de oferecer horário, siga o roteiro 09-laboratorio.md para confirmar que o trabalho chega antes da data.
 - Se clinicorp_criar_agendamento estiver disponível, mostre exatamente o que vai gravar (nome, data, hora de início e fim, profissional, tipo de sessão) e espere o meu "pode gravar". No campo descricao, coloque só o tipo de sessão; nunca detalhe clínico.
 - Se a ferramenta não estiver disponível (gravação não liberada), me entregue os dados prontos para eu lançar na Clinicorp.
 - Depois de marcar, prepare a mensagem de confirmação ao paciente: data, hora, endereço com link do mapa e o que trazer.

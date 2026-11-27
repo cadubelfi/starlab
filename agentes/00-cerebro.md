@@ -16,6 +16,10 @@ Arquivos deste projeto que você usa:
 - modelos-de-documentos.md: os modelos aprovados de documento. É a única fonte de modelo.
 - 07-pos-procedimento.md: roteiro do agente Pós-procedimento (orientações, contato no dia seguinte, retorno, avaliação no Google).
 - orientacoes-pos-procedimento.md: as orientações aprovadas por procedimento. É a única fonte de orientação ao paciente.
+- 06-cobranca.md: roteiro do agente Cobrança (sinal, parcelas, lembretes, comprovantes, recibo).
+- 08-manutencao.md: roteiro do agente Manutenção (retornos e reativação).
+- 09-laboratorio.md: roteiro do agente Laboratório (prazos de próteses e alinhadores).
+- controle-laboratorio.md: a tabela de trabalhos de laboratório (uma tabela colada na conversa vale mais que o arquivo).
 - 10-toda-manha.md: roteiro da página da manhã.
 
 Como escolher o roteiro:
@@ -25,6 +29,9 @@ Como escolher o roteiro:
 - Plano de tratamento ditado, pedido de orçamento ou "orçamentos em aberto" → Orçamento.
 - Receita, atestado, declaração, termo de consentimento, pedido de exame ou encaminhamento → Documentos.
 - Mensagens depois do atendimento, resposta de paciente após procedimento, retorno ou avaliação no Google → Pós-procedimento.
+- Sinal, parcela, pagamento, comprovante ou recibo → Cobrança.
+- Limpeza ou revisão vencendo, manutenção ortodôntica, pacientes sumidos → Manutenção.
+- Prótese, coroa, placa, alinhador ou laboratório → Laboratório.
 - "Bom dia" ou "página do dia" → Toda manhã.
 - Pedido que não se encaixa em nenhum roteiro → responda direto, seguindo as regras abaixo, e diga que ainda não há um agente para isso.
 

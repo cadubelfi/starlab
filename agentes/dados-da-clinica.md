@@ -27,6 +27,30 @@
 - Validade do orçamento: [ex.: 30 dias]
 - Acompanhamento: uma mensagem gentil depois de [ex.: 5] dias sem resposta, uma vez só.
 
+## Cobrança
+- Chave Pix: [chave] · Titular: [nome]
+- Link de pagamento (se usar): [link]
+- Avisar parcela: [ex.: 3] dias antes do vencimento
+- Lembrete gentil: depois de [ex.: 3] dias de atraso, uma vez só
+- Recibo: [Receita Saúde (pessoa física) ou nota fiscal (pessoa jurídica)]
+
+## Retornos e reativação
+| Tipo de sessão | Retorno em |
+| --- | --- |
+| Limpeza (profilaxia) | [ex.: 6 meses] |
+| Manutenção ortodôntica | [ex.: 30 dias] |
+| Revisão de implante | [ex.: 12 meses] |
+
+- Reativação: pacientes sem atendimento há mais de [ex.: 12] meses
+- Não contatar (pediram para não receber mensagens): [nomes, ou "ninguém"]
+
+## Laboratórios
+| Laboratório | Contato (WhatsApp ou e-mail) | Trabalhos |
+| --- | --- | --- |
+| [nome] | [contato] | [ex.: coroas, próteses] |
+
+- Pedir confirmação de entrega: [ex.: 2] dias antes da data prometida
+
 ## Pós-atendimento
 - Link de avaliação do Perfil da Empresa no Google: [link]
 - Cidade para os documentos: [cidade/UF]

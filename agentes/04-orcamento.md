@@ -22,7 +22,7 @@ Montar um orçamento, quando eu ditar o plano:
 3. Monte o rascunho:
 
 RASCUNHO DE ORÇAMENTO PARA APROVAÇÃO DO DENTISTA
-Paciente: [nome] · Data: [hoje] · Validade: [validade de dados-da-clinica.md]
+Paciente: [nome] · Data: [hoje] · Validade: (a validade de dados-da-clinica.md)
 
 | Etapa | Procedimento | Dente/região | Qtd. | Valor unit. | Subtotal |
 (uma linha por item, na ordem em que o dentista quer fazer)
@@ -40,7 +40,7 @@ Sessões previstas: some as sessões da tabela, para a Agenda planejar.
 Acompanhar orçamentos, quando eu pedir "orçamentos em aberto":
 1. Use clinicorp_listar_orcamentos dos últimos 60 dias e, se precisar de detalhe, clinicorp_ver_orcamento.
 2. Liste os que parecem sem resposta: paciente, valor, data e há quantos dias. Se a Clinicorp não deixar claro o status (aprovado, recusado, em aberto), diga isso em vez de adivinhar.
-3. Para os que passaram de [dias de acompanhamento de dados-da-clinica.md] dias, prepare UMA mensagem de acompanhamento gentil por paciente, marcada "precisa do seu OK". Não prepare segunda mensagem para quem já recebeu uma.
+3. Para os que passaram do prazo de acompanhamento de dados-da-clinica.md, prepare UMA mensagem de acompanhamento gentil por paciente, marcada "precisa do seu OK". Não prepare segunda mensagem para quem já recebeu uma.
 
 Regras:
 - Você não escolhe, acrescenta, troca ou retira procedimento, nem sugere alternativa "mais barata" ou "melhor".

@@ -31,44 +31,95 @@ Conector [MCP](https://modelcontextprotocol.io) que deixa o Claude (no app Claud
 | `clinicorp_criar_paciente` | Cadastra paciente novo | Sim, se liberada |
 | `clinicorp_adicionar_lead` | Cria lead no CRM | Sim, se liberada |
 
-## Instalação no Claude Desktop
+## Instalação e teste no Claude Desktop
 
-1. Instale o [Node.js](https://nodejs.org) 20 ou mais novo.
-2. Baixe este repositório e, dentro da pasta `clinicorp-mcp`, rode:
+O teste tem quatro etapas: preparar o conector, ligá-lo ao Claude Desktop, testar só a leitura e, por último, as gravações. Tudo roda no seu computador.
 
-   ```bash
-   npm install
-   ```
+### 1. Preparar o conector
 
-   ```bash
-   npm run build
-   ```
+Precisa do [Node.js](https://nodejs.org) 20 ou mais novo e do Git. No terminal (no Windows, PowerShell), rode um comando por vez:
 
-3. No Claude Desktop, abra *Configurações → Desenvolvedor → Editar configuração* e acrescente ao `claude_desktop_config.json` (troque o caminho e os valores):
+```bash
+git clone https://github.com/cadubelfi/starlab.git
+```
+
+```bash
+cd starlab/clinicorp-mcp
+```
+
+```bash
+npm install
+```
+
+```bash
+npm run build
+```
+
+Para pegar o caminho completo da pasta, use `pwd` no Mac ou Linux, ou `cd` no Windows, e acrescente `/dist/index.js` ao final.
+
+### 2. Ligar ao Claude Desktop
+
+1. No Claude Desktop, abra *Configurações → Desenvolvedor → Editar configuração*. Isso abre o `claude_desktop_config.json`.
+2. Cole o bloco abaixo, trocando o caminho e os três valores. Se o arquivo já tiver um `mcpServers`, acrescente só o trecho `"clinicorp": {...}` dentro dele.
 
    ```json
    {
      "mcpServers": {
        "clinicorp": {
          "command": "node",
-         "args": ["/caminho/completo/para/starlab/clinicorp-mcp/dist/index.js"],
+         "args": ["/caminho/completo/starlab/clinicorp-mcp/dist/index.js"],
          "env": {
            "CLINICORP_API_USER": "seu-usuario-api",
            "CLINICORP_API_TOKEN": "seu-token-api",
            "CLINICORP_SUBSCRIBER_ID": "seu-id-de-assinante",
-           "CLINICORP_GRAVACOES_LIBERADAS": "",
-           "CLINICORP_LOG_GRAVACOES": "/caminho/completo/para/gravacoes-clinicorp.jsonl"
+           "CLINICORP_GRAVACOES_LIBERADAS": ""
          }
        }
      }
    }
    ```
 
-   No Windows, use barras duplas no caminho: `C:\\Users\\voce\\starlab\\clinicorp-mcp\\dist\\index.js`.
+   - Usuário API, Token API e ID do assinante ficam na Clinicorp, em *Gerenciar Assinatura → Acesso Externo e Integrações*.
+   - No Windows, use barras duplas no caminho: `C:\\Users\\voce\\starlab\\clinicorp-mcp\\dist\\index.js`.
+   - Deixe `CLINICORP_GRAVACOES_LIBERADAS` vazio por enquanto, para o conector só ler.
 
-4. Feche e abra o Claude Desktop. Teste com: *"Liste os profissionais da Clinicorp."*
+3. Feche o Claude Desktop por completo (no Mac, Cmd+Q) e abra de novo.
+4. Numa conversa nova, abra o menu de ferramentas e confira se "clinicorp" aparece, com 12 ferramentas.
 
 O token fica só nesse arquivo, no seu computador. Não cole o token em conversas nem em prompts.
+
+### 3. Testar só a leitura, nesta ordem
+
+Compare cada resposta com o que aparece na Clinicorp.
+
+| # | Peça ao Claude | O que confirma |
+| --- | --- | --- |
+| 1 | "Liste os profissionais da Clinicorp." | Credenciais e conexão |
+| 2 | "Liste as clínicas da Clinicorp." | O ID da clínica, usado nos agentes |
+| 3 | "Liste os procedimentos da Clinicorp." | Os nomes para a tabela de procedimentos |
+| 4 | "Quais agendamentos a clínica [ID] tem amanhã?" | Leitura da agenda e formato de data |
+| 5 | "Quais horários o profissional [ID] tem livres na clínica [ID] na próxima semana?" | Horários livres. É o endpoint mais incerto: confira com a agenda real |
+| 6 | "Busque o paciente com telefone [um telefone real]." | Busca de paciente |
+| 7 | "Liste os orçamentos e os pagamentos dos últimos 30 dias." | Orçamentos e financeiro |
+
+### 4. Testar gravações, só depois que a leitura estiver certa
+
+1. No mesmo arquivo, mude para `"CLINICORP_GRAVACOES_LIBERADAS": "criar_agendamento"` e acrescente `"CLINICORP_LOG_GRAVACOES": "/caminho/gravacoes-clinicorp.jsonl"`.
+2. Reinicie o Claude Desktop.
+3. Crie um agendamento para um paciente de teste, num horário livre, e confira se ele aparece na Clinicorp.
+4. Cancele esse agendamento na própria Clinicorp.
+
+### Se algo der errado
+
+| Sintoma | O que fazer |
+| --- | --- |
+| "clinicorp" não aparece nas ferramentas | O JSON tem algum erro, como vírgula sobrando ou caminho errado. Abra os logs: no Mac, `~/Library/Logs/Claude/mcp-server-clinicorp.log`; no Windows, `%APPDATA%\Claude\logs` |
+| Log diz `node: command not found` | Troque `"node"` pelo caminho completo do Node (no Mac, `which node`; no Windows, `where node`) |
+| "Faltam variáveis de ambiente" | Algum dos três valores ficou vazio no bloco `env` |
+| HTTP 401 ou 403 | Usuário ou token errados, ou o plano não tem o módulo API Externa |
+| HTTP 404 ou 400 numa ferramenta | O endpoint ou os parâmetros diferem da sua conta. Anote a ferramenta e a mensagem de erro (sem dados de pacientes) para corrigir o conector |
+
+Quando a leitura funcionar, monte o Projeto "Clínica" com os agentes, como explica o [README dos agentes](../agentes/README.md).
 
 ## Configuração
 
